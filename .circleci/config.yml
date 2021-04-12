@@ -4,12 +4,9 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/golang:1.14.6
-        auth:
-          username: rushikeshnere
-          password: Rushidocker123$
         environment:
           DOCKERHUB_PASS: Rushidocker123$
-          #DOCKERHUB_USERNAME: username
+          DOCKERHUB_USERNAME: rushikeshnere
     steps:
       - checkout
       - restore_cache:
@@ -32,4 +29,4 @@ jobs:
 
       - run:
           name: Build and push Docker image
-          command: docker login -u rushikeshnere -p Rushidocker123$  &&  docker push demo/userservice:1.0
+          command: docker buid -t demo/userservice:1.0 && docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASS  &&  docker push demo/userservice:1.0
