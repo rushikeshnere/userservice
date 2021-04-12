@@ -27,5 +27,5 @@ jobs:
           command: |
             echo $dockerhubpass
             docker build -t demo/userservice:1.0 .
-            docker login -u $DOCKER_LOGIN --password $dockerhubpass
+            docker login -u $DOCKER_LOGIN --password Rushidockeer123$
             docker push demo/userservice:1.0
