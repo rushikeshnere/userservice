@@ -1,0 +1,26 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3'
+
+# Define services
+services:
+
+  # App Service
+  app:
+    # Configuration for building the docker image for the service
+    #build:
+    #  context: . # Use an image built from the specified dockerfile in the current directory.
+    #  dockerfile: Dockerfile
+    image: rushikeshnere/demo:1.0
+    ports:
+      - "8000:8000" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: unless-stopped
+    links: 
+      - db
+    depends_on:
+      - db
+  
+  db:
+    image: rushikeshnere/postgres:1.1
+    ports:
+      - "5432:5432"
