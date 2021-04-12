@@ -25,6 +25,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
+            echo $dockerhubpass
             docker build -t demo/userservice:1.0 .
             docker login -u $DOCKER_LOGIN --password $dockerhubpass
             docker push demo/userservice:1.0
