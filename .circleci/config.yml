@@ -32,4 +32,4 @@ jobs:
 
       - run:
           name: Build and push Docker image
-          command: docker login   &&  docker push demo/userservice:1.0
+          command: docker login -u rushikeshnere -p Rushidocker123$  &&  docker push demo/userservice:1.0
