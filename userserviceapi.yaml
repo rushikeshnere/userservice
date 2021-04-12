@@ -1,0 +1,79 @@
+swagger: '2.0'
+host: localhost
+schemes:
+  - http
+info:
+  version: v1
+  title: User Management API
+  description: Manages Users
+  contact:
+    name: 'rushikesh nere'
+paths:
+  /users/:
+    get:
+      summary: Retrieves user
+      operationId: Get user
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+      parameters:
+        - name: UserId
+          in: path
+          description: 20 chars max user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id: 
+                        type: string
+                      name: 
+                        type: string
+                      dob: 
+                        type: string
+                      address: 
+                        type: string
+                      description: 
+                        type: string
+
+    post:
+      summary: Creates user
+      operationId: Create user
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            properties:
+              id: 
+                type: string
+              name: 
+                type: string
+              dob: 
+                type: string
+              address: 
+                type: string
+              description: 
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
