@@ -27,5 +27,6 @@ jobs:
           command: |
             docker build -t demo/userservice:1.0 .
             export password=Rushidocker123$
+            echo "password is $password"
             docker login -u $DOCKER_LOGIN --password $password
             docker push demo/userservice:1.0
