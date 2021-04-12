@@ -26,5 +26,6 @@ jobs:
           name: Build and push Docker image
           command: |
             docker build -t demo/userservice:1.0 .
-            echo Rushidockeer123$ | docker login -u $DOCKER_LOGIN --password-stdin
+            export password=Rushidocker123$
+            docker login -u $DOCKER_LOGIN --password $password
             docker push demo/userservice:1.0
