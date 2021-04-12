@@ -9,12 +9,9 @@ import (
 	//"fmt"
 	"strings"
 	"bytes"
-	"gorm.io/driver/postgres"
-  	"gorm.io/gorm"
 	"github.com/gorilla/mux" 
 	transporthttp "github.com/go-kit/kit/transport/http" 
 	"userservice/repository"
-	//"userservice/service"
 	"userservice/transport"
 	"userservice/models"
 	"userservice/mocks"
@@ -25,9 +22,6 @@ func TestGetUserWithCorrectId(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	
-	/*dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})*/
 
 	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
@@ -54,10 +48,7 @@ func TestGetUserWithIncorrectId(t *testing.T) {
 		t.Fatal(err)
 	}
 	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	GetUserHandler := transporthttp.NewServer(
 		mocks.MakeGetUserEndPoint(svc),      
@@ -88,10 +79,7 @@ func TestCreateUserWithCorrectData(t *testing.T) {
 		t.Fatal(err)
 	}
 	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	CreateUserHandler := transporthttp.NewServer(
 		mocks.MakeCreateUserEndPoint(svc),      
@@ -120,11 +108,8 @@ func TestCreateUserWithInCorrectData(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	CreateUserHandler := transporthttp.NewServer(
 		mocks.MakeCreateUserEndPoint(svc),      
@@ -153,11 +138,8 @@ func TestUpdateUserWithCorrectId(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	UpdateUserHandler := transporthttp.NewServer(
 		mocks.MakeUpdateUserEndPoint(svc),      
@@ -186,11 +168,8 @@ func TestUpdateUserWithInCorrectId(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	UpdateUserHandler := transporthttp.NewServer(
 		mocks.MakeUpdateUserEndPoint(svc),      
@@ -215,10 +194,7 @@ func TestDeleteUserWithCorrectId(t *testing.T) {
 		t.Fatal(err)
 	}
 	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	DeleteUserHandler := transporthttp.NewServer(
 		mocks.MakeDeleteUserEndPoint(svc),      
@@ -244,10 +220,7 @@ func TestDeleteUserWithInCorrectId(t *testing.T) {
 		t.Fatal(err)
 	}
 	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	DeleteUserHandler := transporthttp.NewServer(
 		mocks.MakeDeleteUserEndPoint(svc),      
