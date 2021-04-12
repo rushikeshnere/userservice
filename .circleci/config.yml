@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/golang:1.14.6
-      environment:
+        environment:
           DOCKERHUB_PASS: Rushidocker123$
           #DOCKERHUB_USERNAME: username
     steps:
