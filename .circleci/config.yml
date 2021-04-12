@@ -23,8 +23,10 @@ jobs:
           name: Run tests
           command: go test -v
           working_directory: ./test/
+
       - setup_remote_docker:
           version: 19.03.13
+
       - run:
           name: Build and push Docker image
-          command: docker login -u $DOCKER_LOGIN -p $DOCKERHUB_PASSWORD  &&  docker push demo/userservice:1.0
+          command: docker login -u $DOCKER_LOGIN -p "Rushidocker123$"  &&  docker push demo/userservice:1.0
