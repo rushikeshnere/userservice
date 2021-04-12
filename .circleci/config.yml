@@ -32,4 +32,4 @@ jobs:
 
       - run:
           name: Build and push Docker image
-          command: docker login -u $DOCKER_LOGIN -p $password  &&  docker push demo/userservice:1.0
+          command: docker login   &&  docker push demo/userservice:1.0
