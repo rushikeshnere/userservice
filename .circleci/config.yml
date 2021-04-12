@@ -19,5 +19,4 @@ jobs:
       - run:
           name: Run tests
           command: go test -v
-          paths:
-            - "./test/"
+          working_directory: ./test/
