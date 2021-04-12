@@ -27,4 +27,4 @@ jobs:
           version: 19.03.13
       - run:
           name: Build and push Docker image
-          command: docker build -t demo/userservice:1.0 . && docker login -u $DOCKER_LOGIN -p $DOCKERHUB_PASS  &&  docker push demo/userservice:1.0
+          command: docker login -u $DOCKER_LOGIN -p $DOCKERHUB_PASSWORD  &&  docker push demo/userservice:1.0
