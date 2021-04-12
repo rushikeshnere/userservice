@@ -26,10 +26,10 @@ func TestGetUserWithCorrectId(t *testing.T) {
 		t.Fatal(err)
 	}
 	
-	dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	/*dsn := "host=localhost user=postgres password=postgres dbname=gorm port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})*/
 
-	repository, _ := repository.New(db);
+	repository, _ := repository.New(nil);
 	svc := mocks.NewService(repository)
 	GetUserHandler := transporthttp.NewServer(
 		mocks.MakeGetUserEndPoint(svc),      
