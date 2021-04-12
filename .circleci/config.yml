@@ -29,4 +29,4 @@ jobs:
 
       - run:
           name: Build and push Docker image
-          command: docker build -t demo/userservice:1.0 && docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASS  &&  docker push demo/userservice:1.0
+          command: docker build -t demo/userservice:1.0 . && docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASS  &&  docker push demo/userservice:1.0
